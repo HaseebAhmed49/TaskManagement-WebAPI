@@ -1,8 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using TaskManagement_WebAPI.Data;
+using TaskManagement_WebAPI.Data.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Name=SQLLiteDB"));
+builder.Services.AddTransient<TasksService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -21,5 +29,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+DBInitializer.Seed(app);
 
 app.Run();
