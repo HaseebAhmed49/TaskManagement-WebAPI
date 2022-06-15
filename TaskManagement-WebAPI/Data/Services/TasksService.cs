@@ -2,7 +2,7 @@
 
 namespace TaskManagement_WebAPI.Data.Services
 {
-    public class TasksService
+    public class TasksService:ITaskService
     {
         private readonly AppDbContext _context;
 
