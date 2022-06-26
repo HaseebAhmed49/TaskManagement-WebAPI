@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Name=SQLLiteDB"));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Name=SQLLiteDBmacOS"));
 
 
 
