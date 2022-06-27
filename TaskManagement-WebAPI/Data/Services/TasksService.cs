@@ -44,6 +44,12 @@ namespace TaskManagement_WebAPI.Data.Services
             return taskDataVMs;
         }
 
+        public TaskData GetTaskById(int id)
+        {
+            var task = _context.Tasks.FirstOrDefault(t=>t.id==id);
+            return task;
+        }
+
         public TaskData UpdateTaskDetails(int id,TaskDataVM task)
         {
             var taskdata = _context.Tasks.FirstOrDefault(x => x.id == id);

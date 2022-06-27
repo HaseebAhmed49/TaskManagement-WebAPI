@@ -30,6 +30,22 @@ namespace TaskManagement_WebAPI.Controllers
             }
         }
 
+        [HttpGet("get-task-by-id/{id}")]
+        public IActionResult GetTaskById(int id)
+        {
+            try
+            {
+                var task = _tasksService.GetTaskById(id);
+                return (task!=null) ? Ok(task) : BadRequest("No Tasks Found");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
+
         [HttpPost("add-task")]
         public IActionResult AddTask([FromBody]TaskDataVM task)
         {
