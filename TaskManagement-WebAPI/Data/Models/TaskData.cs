@@ -9,8 +9,12 @@ namespace TaskManagement_WebAPI.Data.Models
 
         public string taskName { get; set; }
 
+        public string? taskDescription { get; set; }
+
         public DateTime startDate { get; set; }
 
         public DateTime endDate { get; set; }
+
+        public TaskStatus? taskStatus { get; set; }
     }
 }
