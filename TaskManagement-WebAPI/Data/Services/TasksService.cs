@@ -17,8 +17,10 @@ namespace TaskManagement_WebAPI.Data.Services
             {
                 taskName = task.taskName,
                 startDate = task.startDate,
-                endDate = task.endDate
-            };
+                endDate = task.endDate,
+                taskDescription = task.taskDescription,
+                taskStatus = task.taskStatus
+        };
             _context.Tasks.Add(taskDetails);
             _context.SaveChanges();
         }
@@ -36,7 +38,9 @@ namespace TaskManagement_WebAPI.Data.Services
                         id = task.id,
                         taskName=task.taskName,
                         startDate=task.startDate, 
-                        endDate=task.endDate
+                        endDate=task.endDate,
+                        taskDescription = task.taskDescription,
+                        taskStatus = task.taskStatus                        
                     }).FirstOrDefault();
                     taskDataVMs.Add(_tasksdetails);
                 }
@@ -58,6 +62,8 @@ namespace TaskManagement_WebAPI.Data.Services
                 taskdata.startDate = task.startDate;
                 taskdata.endDate = task.endDate;
                 taskdata.taskName = task.taskName;
+                taskdata.taskDescription = task.taskDescription;
+                taskdata.taskStatus = task.taskStatus;
                 _context.SaveChanges();
             }
             return taskdata;
