@@ -10,8 +10,6 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Name=SQLLiteDBmacOS"));
 
-
-
 builder.Services.AddTransient<TasksService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
